@@ -9,7 +9,7 @@ export default function Search() {
   const setSearchValue = useParamsStore((state) => state.setSearchValue)
   const searchValue = useParamsStore((state) => state.searchValue)
 
-  function onChange(e: any): void {
+  function onChange(e: { target: { value: string } }): void {
     setSearchValue(e.target.value)
   }
 
@@ -25,7 +25,7 @@ export default function Search() {
     >
       <input
         value={searchValue}
-        onKeyDown={(e: any) => {
+        onKeyDown={(e) => {
           if (e.key === 'Enter') {
             search()
           }
